@@ -57,7 +57,7 @@ CHIP ALU {
    Mux16(a=and, b=add, sel=f, out=opf);
 
    Not16(in=opf, out=nopf);
-   Mux16(a=opf, b=nopf, sel=no, out=out, out[0..7]=opno1, out[8..15]=opno2, out[15]=negative);
+   Mux16(a=opf, b=nopf, sel=no, out=out, out[0..7]=opno1, out[8..15]=opno2, out[15]=ng);
 
    
 
@@ -65,6 +65,4 @@ CHIP ALU {
    Or8Way(in=opno2, out=o2);
    Or(a=o1, b=o2, out=o21);
    Nand(a=o21, b=true, out=zr);
-
-   And(a=negative, b=true, out=ng);
 }
